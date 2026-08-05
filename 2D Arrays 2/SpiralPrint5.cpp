@@ -24,7 +24,7 @@ int main()
     int maxc=n-1;
 
     cout<<"Printing of spiral matrix is:"<<endl;
-    
+
     while(minr<=maxr && minc<=maxc)
     {
         //right
@@ -42,18 +42,26 @@ int main()
         maxc--;
 
         //left
-        for(int j=maxc;j>=minc;j--)
+        if (minr <= maxr)
+        {
+            for(int j=maxc;j>=minc;j--)
         {
             cout<<a[maxr][j]<<" ";
         }
         maxr--;
+        }
+       
 
         //up
+        if (minc <= maxc)
+        {
         for(int i=maxr;i>=minr;i--)
         {
             cout<<a[i][minc]<<" ";
         }
         minc++;
+        }
+        
 
     }
     
