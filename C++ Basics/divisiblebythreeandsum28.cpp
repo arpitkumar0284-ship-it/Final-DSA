@@ -5,7 +5,6 @@ int main()
 {
     int start,end;
     cin>>start>>end;
-    int count=0;
      vector<int> v;
 
    while(start<=end)
@@ -13,7 +12,6 @@ int main()
     if(start%3==0)
     {
         v.push_back(start);
-        count++;
     }
     start++;
    }
