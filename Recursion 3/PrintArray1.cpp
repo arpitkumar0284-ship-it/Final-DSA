@@ -1,11 +1,11 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-void display(int arr[], int n, int idx)
-{   if(idx==n) return;
-    cout<<arr[idx]<<" ";
-    display(arr,n,idx+1);
-}
+// void display(int arr[], int n, int idx)
+// {   if(idx==n) return;
+//     cout<<arr[idx]<<" ";
+//     display(arr,n,idx+1);
+// }
 
 void display2(vector<int>& v,int idx)
 {
