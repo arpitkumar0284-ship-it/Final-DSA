@@ -47,6 +47,88 @@ public:
      }
      size++;
   }
+
+  void insertAtIdx(int idx, int val){
+     if(idx<0 || idx>size)  cout<<"Invalid Index"<<endl;
+    else if(idx==0) insertAtHead(val); 
+    else if(idx==size) insertAtTail(val);  
+    else{
+      Node* t=new Node(val);
+      Node* temp=head;
+      for(int i=1;i<=idx-1;i++)
+      {
+         temp=temp->next;
+      }
+      t->next=temp->next;
+      temp->next=t;
+      size++;
+    }
+  }
+  int getAtIdx(int idx)
+  {
+      if(idx<0 || idx>=size) 
+      {
+         cout<<"Invalid Index";
+         return -1;
+      }
+      else if(idx==0) return head->val;
+      else if(idx==size-1) return tail->val;
+      else{
+         Node* temp=head;
+         for(int i=1;i<=idx;i++)
+         {
+            temp=temp->next;
+         }
+         return temp->val;
+      }
+  }
+
+  void deleteAtHead(){
+     if(size==0)
+     {
+       cout<<"List is empty";
+     }
+     head=head->next;
+     size--;
+  }
+
+  void deleteAtTail(){
+       if(size==0) 
+       {
+         cout<<"List is empty";
+         return;
+       }
+       Node* temp=head;
+       while(temp->next!=tail){
+         temp=temp->next;
+       }
+        temp->next=NULL;
+         tail=temp;
+  }
+  void deleteAtIdx(int idx)
+  {   if(size==0)
+   {
+      cout<<"List is empty!";
+      return;
+   }
+   else if(idx<0 || idx>=size)
+   {
+      cout<<"Invalid Index";
+      return;
+   }
+   else if(idx==0) return deleteAtHead();
+   else if(idx==size-1) return deleteAtTail();
+   else
+   {
+      Node* temp=head;
+      for(int i=1;i<=idx-1;i++)
+      {
+         temp=temp->next;
+      }
+      temp->next=temp->next->next;
+      size--;
+   }
+  }
   void display()
   {
     Node* temp=head;
@@ -72,5 +154,12 @@ int main()
     ll.display();
     ll.insertAtHead(24);
     ll.display();
-
+    ll.insertAtIdx(4,80);
+    ll.display();
+    ll.deleteAtHead();
+    ll.display();
+    ll.deleteAtTail();
+    ll.display();
+    ll.deleteAtIdx(3);
+    ll.display();
 }
