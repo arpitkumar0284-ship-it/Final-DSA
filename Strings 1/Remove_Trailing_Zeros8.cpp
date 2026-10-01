@@ -1,18 +1,14 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 using namespace std;
+
 int main() {
     string num;
+    cout << "Enter number: ";
     cin >> num;
 
-    int n = num.size();
-
-    while(num[n - 1] == '0') {
+    while(num.back() == '0') {
         num.pop_back();
-        n--;
     }
-
-    cout << num;
-
+    cout << "Output: " << num << endl;
     return 0;
 }
